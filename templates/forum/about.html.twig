@@ -1,0 +1,46 @@
+{% extends 'base.html.twig' %}
+
+
+{% block body %}
+
+
+<h1>A propos</h1>
+
+<div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <img src="..." class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+        </div>
+        <div class="carousel-item">
+            <img src="..." class="d-block w-100" alt="...">
+        </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
+
+<p>🦕 À propos de REGIS
+
+Bienvenue sur REGIS, le repaire des curieux du Jurassique (et de toutes les autres ères, on n’est pas sectaires).
+Ici, on parle dinosaures, fossiles, découvertes incroyables… et parfois, on débat sérieusement pour savoir si le T-Rex aurait survécu à un lundi matin sans café. ☕🦖
+
+Notre mission ?
+👉 Créer une communauté sympa, passionnée et un peu geek, où la préhistoire devient vivante (sans qu’un raptor ne te saute dessus).
+
+Installe-toi, creuse un peu, partage ton savoir ou juste ta bonne humeur — on t’accueille à coups de rugissements amicaux !</p>
+
+{% endblock %}
