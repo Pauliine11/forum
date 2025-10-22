@@ -20,6 +20,7 @@ body {
 .col_11 {width:91.666666%;}
 .col_12 {width: 100%;}
 
+
 h1 {
     color: rgb(55, 41, 32);
     font-family: "Kufam", sans-serif;
@@ -33,6 +34,7 @@ h1 {
 .navImg {
     width: 60px;
 }
+
 
 footer {
     position: relative;
@@ -61,11 +63,11 @@ footer {
 .nav-item:not(.is-active):hover:before {
   bottom: 0;
 }
-
+/*
 .nav-item:not(.is-active):hover {
   color: #608aac;
 }
-
+*/
 .nav-indicator {
   position: absolute;
   left: 0;
@@ -73,6 +75,11 @@ footer {
   height: 5px;
   transition: .4s;
   border-radius: 8px 8px 0 0;
+}
+
+.log {
+  width: 45%;
+  padding: 65px;
 }
 
 .btnColor {
