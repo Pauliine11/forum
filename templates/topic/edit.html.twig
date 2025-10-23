@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Topic{% endblock %}
+
+{% block body %}
+    <h1>Modifier sujet</h1>
+
+    {{ include('topic/_form.html.twig', {'button_label': 'Modifier'}) }}
+
+    {{ include('topic/_delete_form.html.twig') }}
+{% endblock %}

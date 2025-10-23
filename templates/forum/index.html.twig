@@ -6,37 +6,91 @@
 <div class="container my-5">
 
 {% if app.user %}
-    <h1 class="mt-5">Bienvenue au Regisciens, {{ app.user.pseudo}}, Explorons ensemble ! </h1>
+    <h1 class="mt-5">Bienvenue {{ app.user.pseudo}}, Explorons ensemble ! </h1>
 {% else %}
     <h1 class="mt-5">Bienvenue au Regisciens</h1>
 {% endif %}
 
     <div class="container-fluid bgLight">
-        <div class="row">
-            <a href="#" class="btn btnColor m-5">Nouveau sujet</a>
+        <div class="row m-2 d-flex justify-content-around">
+            <div class="row m-2 d-flex justify-content-around mb-3 col_12">
+                <div class="p-2 mt-5">
+                    <a href="{{ path('app_topic_index') }}" class="btn btnColor">
+                        <img class="iconDino" src="img/dino3.png"/>Général
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a href="#" class="btn btnColor">
+                        <img class="iconDino" src="img/dino5.png"/>Dinosaures
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a href="#" class="btn btnColor ">
+                        <img class="iconDino" src="img/dino2.png"/>Paléontologie
+                    </a>
+                </div>
+                <div class="p-2">
+                    <a href="{{ path('app_topic_new') }}" class="btn btnColor m-3">
+                        <img class="iconDino" src="img/dino7.png"/>Nouveau sujet
+                    </a>
+                </div>
+            </div>
+
             <h2 class="mt-5">Sujet récent :</h2>
 
-            <div class="col_4 rounded border border-secondary">
+            <div class="col_3 rounded border border-secondary m-2">
                 <h3>Ici un sujet</h3>
                 <p>Ici nom de la personne qui a creer<p>
                 <p>ici date</p>
             </div>
 
-            <div class="col_4 rounded border border-secondary">
+            <div class="col_3 rounded border border-secondary m-2">
                 <h3>Ici un autre sujet</h3>
                 <hr class="trait"/>
                 <p>Ici nom de la personne qui a creer</p>
                 <p>Ici date</p>
             </div>
 
-            <div class="col_4 rounded border border-secondary">
+            <div class="col_3 rounded border border-secondary m-2">
                 <h3>Ici un autre sujet</h3>
                 <hr class="trait"/>
                 <p>Ici nom de la personne qui a creer</p>
                 <p>Ici date</p>
             </div>
 
-            <div class="col_4 rounded border border-secondary">
+            <div class="col_3 rounded border border-secondary m-2">
+                <h3>Ici un autre sujet</h3>
+                <hr class="trait"/>
+                <p>Ici nom de la personne qui a creer</p>
+                <p>Ici date</p>
+            </div>
+            <div class="col_3 rounded border border-secondary m-2">
+                <h3>Ici un sujet</h3>
+                <p>Ici nom de la personne qui a creer<p>
+                <p>ici date</p>
+            </div>
+
+            <div class="col_3 rounded border border-secondary m-2">
+                <h3>Ici un autre sujet</h3>
+                <hr class="trait"/>
+                <p>Ici nom de la personne qui a creer</p>
+                <p>Ici date</p>
+            </div>
+
+            <div class="col_3 rounded border border-secondary m-2">
+                <h3>Ici un autre sujet</h3>
+                <hr class="trait"/>
+                <p>Ici nom de la personne qui a creer</p>
+                <p>Ici date</p>
+            </div>
+
+            <div class="col_3 rounded border border-secondary m-2">
+                <h3>Ici un autre sujet</h3>
+                <hr class="trait"/>
+                <p>Ici nom de la personne qui a creer</p>
+                <p>Ici date</p>
+            </div>
+            <div class="col_3 rounded border border-secondary m-2">
                 <h3>Ici un autre sujet</h3>
                 <hr class="trait"/>
                 <p>Ici nom de la personne qui a creer</p>

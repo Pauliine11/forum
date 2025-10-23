@@ -21,6 +21,10 @@ body {
 .col_11 {width:91.666666%;}
 .col_12 {width: 100%;}
 
+.multi-bg-example {
+  background-image: url(/img/bgJurassik.jpg);
+}
+
 :root {
     --text-color: #fff;
     --color: #22471a;
@@ -115,6 +119,10 @@ h1 {
     color: #b39e29;
 }
 
+.iconDino {
+  width: 45px;
+  padding-right: 15px;
+}
 
 .footer-basic {
   padding: 25px 0;
