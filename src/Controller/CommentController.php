@@ -30,6 +30,8 @@ final class CommentController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setCreationDate(new \DateTime());
+
             $entityManager->persist($comment);
             $entityManager->flush();
 
@@ -57,6 +59,7 @@ final class CommentController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $comment->setModificationDate(new \DateTime());
             $entityManager->flush();
 
             return $this->redirectToRoute('app_comment_index', [], Response::HTTP_SEE_OTHER);

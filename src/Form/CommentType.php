@@ -18,14 +18,14 @@ class CommentType extends AbstractType
             ->add('message')
             // ->add('creation_date')
             // ->add('modification_date')
-            // ->add('topic', EntityType::class, [
-            //     'class' => Topic::class,
-            //     'choice_label' => 'id',
-            // ])
-            // ->add('user', EntityType::class, [
-            //     'class' => User::class,
-            //     'choice_label' => 'id',
-            // ])
+            ->add('topic', EntityType::class, [
+                 'class' => Topic::class,
+                 'choice_label' => 'id',
+            ])
+            ->add('user', EntityType::class, [
+                 'class' => User::class,
+                 'choice_label' => 'id',
+            ])
         ;
     }
 

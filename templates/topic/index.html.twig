@@ -2,40 +2,14 @@
 
 {% block body %}
     <h1>Les sujets</h1>
-    <div class="container-fluid"> 
-        <div class="d-flex align-content-start flex-wrap">  
-            {% for topic in topics %}
-                <div class="card m-3" style="width: 31.33%;">
-                    <div class="card-header">
-                        <h2 class="fs-4">{{ topic.title }}</h2>
-                    </div>
-                    <div class="card-body">
-                        <figure>
-                        <blockquote class="blockquote">
-                            <p>{{ topic.description }}</p>
-                        </blockquote>
-                        {% if topic.modificationDate %}
-                            <figcaption class="blockquote-footer">
-                                {{ topic.modificationDate ? topic.modificationDate|date('d-m-Y') : topic.creationDate|date('d-m-Y') }}
-                            </figcaption>
-                        {% else %}
-                            <figcaption class="blockquote-footer">
-                                {{ topic.modificationDate ? topic.modificationDate|date('d-m-Y') : topic.creationDate|date('d-m-Y') }}
-                            </figcaption>
-                        {% endif %}
-                        </figure>
-                    </div>
-                    <div class="card-footer text-body-secondary">
-                        <a href="{{ path('app_topic_show', {'id': topic.id}) }}" class="btn btn-dark">Voir +</a>
-                        {% if app.user %}
-                            <a href="{{ path('app_topic_edit', {'id': topic.id}) }}" class="btn btn-warning">Modifier</a>
-                        {% endif %}
-                    </div>
-                </div>
-            {% else %}
-                <p>Il n'y a pas encore de sujet</p>
-            {% endfor %}
-        </div>
-        <a href="{{ path('app_topic_new') }}" class="btn btn-dark m-3">Créer un nouveau sujet</a>
+
+    <div class="container-fluid">
+        {% for topic in topics %}
+            <a href="{{ path('app_topic_show', {'id': topic.id}) }}" class="btn btn-dark col-12 mt-2">{{ topic.title}}</a>
+        {% else %}
+            <p>Il n'y a pas encore de sujet</p>
+        {% endfor %}
+
+        <a href="{{ path('app_topic_new') }}" class="btn btn-warning m-3">Créer un sujet</a>
     </div>
 {% endblock %}

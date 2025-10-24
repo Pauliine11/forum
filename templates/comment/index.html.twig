@@ -3,12 +3,11 @@
 {% block title %}Comment index{% endblock %}
 
 {% block body %}
-    <h1>Comment index</h1>
+    <h1>Les commentaires</h1>
 
     <table class="table">
         <thead>
             <tr>
-                <th>Id</th>
                 <th>Message</th>
                 <th>Creation_date</th>
                 <th>Modification_date</th>
@@ -18,22 +17,21 @@
         <tbody>
         {% for comment in comments %}
             <tr>
-                <td>{{ comment.id }}</td>
                 <td>{{ comment.message }}</td>
                 <td>{{ comment.creationDate ? comment.creationDate|date('Y-m-d') : '' }}</td>
                 <td>{{ comment.modificationDate ? comment.modificationDate|date('Y-m-d') : '' }}</td>
                 <td>
-                    <a href="{{ path('app_comment_show', {'id': comment.id}) }}">show</a>
-                    <a href="{{ path('app_comment_edit', {'id': comment.id}) }}">edit</a>
+                    <a class="btn btn-dark" href="{{ path('app_comment_show', {'id': comment.id}) }}">Voir +</a>
+                    <a class="btn btn-warning" href="{{ path('app_comment_edit', {'id': comment.id}) }}">Modifier</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="5">no records found</td>
+                <td colspan="5">Pas de commentaire trouvé</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_comment_new') }}">Create new</a>
+    <a class="btn btn-warning" href="{{ path('app_comment_new') }}">Commenter</a>
 {% endblock %}
