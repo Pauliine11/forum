@@ -78,11 +78,13 @@ h1 {
 .nav-item:not(.is-active):hover:before {
   bottom: 0;
 }
+
 /*
 .nav-item:not(.is-active):hover {
   color: #608aac;
 }
 */
+
 .nav-indicator {
   position: absolute;
   left: 0;
@@ -107,7 +109,6 @@ h1 {
 .btnColor {
     background-color: #F2C94C;
     font-weight: bold;
-    width: 15%;
 }
 
 .bgLight {

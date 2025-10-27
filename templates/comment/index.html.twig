@@ -9,9 +9,9 @@
         <thead>
             <tr>
                 <th>Message</th>
-                <th>Creation_date</th>
-                <th>Modification_date</th>
-                <th>actions</th>
+                <th>Date de création</th>
+                <th>Date de modification</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -22,7 +22,7 @@
                 <td>{{ comment.modificationDate ? comment.modificationDate|date('Y-m-d') : '' }}</td>
                 <td>
                     <a class="btn btn-dark" href="{{ path('app_comment_show', {'id': comment.id}) }}">Voir +</a>
-                    <a class="btn btn-warning" href="{{ path('app_comment_edit', {'id': comment.id}) }}">Modifier</a>
+                    <a class="btn btn-danger" href="{{ path('app_comment_delete', {'id': comment.id}) }}">Supprimer</a>
                 </td>
             </tr>
         {% else %}
@@ -33,5 +33,4 @@
         </tbody>
     </table>
 
-    <a class="btn btn-warning" href="{{ path('app_comment_new') }}">Commenter</a>
 {% endblock %}

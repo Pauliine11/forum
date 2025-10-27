@@ -4,6 +4,7 @@
     <h1>Les sujets</h1>
 
     <div class="container-fluid">
+    
         {% for topic in topics %}
             <a href="{{ path('app_topic_show', {'id': topic.id}) }}" class="btn btn-dark col-12 mt-2">{{ topic.title}}</a>
         {% else %}

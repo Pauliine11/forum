@@ -2,6 +2,8 @@
     <div class="container-fluid">
         <a class="navbar-brand text-light" href="/">
             <img class="navImg" src="{{ asset('img/tail.png') }}" alt="image trex" />
+            RooARRR !
+
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -14,20 +16,25 @@
                 <li class="nav-item">
                     <a class="nav-link active text-light" aria-current="page" href="{{ path('app_topic_index') }}">Les sujets</a>
                 </li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li class="nav-item">
+                        <a class="nav-link active text-light" aria-current="page" href="{{ path('app_comment_index') }}">Les commentaires</a>
+                    </li>
+                {% endif %}
             </ul>
         </div>
         <div class="collapse navbar-collapse d-flex flex-row-reverse" id="navbarNav">
             <ul class="navbar-nav">
                 {% if (app.user) %}
                     <li class="nav-item">
-                        <a class="nav-link text-light p-2 flex-shrink-1" href="/deconnexion">Se déconnecter</a>
+                        <a class="nav-link text-light p-2 flex-shrink-1" href="{{ path('app_logout') }}">Se déconnecter</a>
                     </li>
                 {% else %}
                     <li class="nav-item">
-                        <a class="nav-link text-light p-2 flex-shrink-1" href="/inscription">Inscription</a>
+                        <a class="nav-link text-light p-2 flex-shrink-1" href="{{ path('app_register') }}">Inscription</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-light p-2 flex-shrink-1" href="/connexion">Se connecter</a>
+                        <a class="nav-link text-light p-2 flex-shrink-1" href="{{ path('app_login') }}">Se connecter</a>
                     </li>
                 {% endif %}
             </ul>

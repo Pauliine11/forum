@@ -6,36 +6,45 @@
 
     <div class="container-fluid mt-5">
         <h1>{{ topic.title }}</h1>
-        <div class="d-flex justify-content-center">
-            <div class="card text-center" style="width: 33%;">
-                <div class="card-header">
+        <div class="d-flex justify-content-center border-dark">
+            <div class="card text-center border-dark" style="width: 33%;">
+                <div class="card-header bg-warning fs-4">
                     <p>{{ topic.description }}<p>
                 </div>
                 <div class="card-body">
                     {% if topic.modificationDate %}
-                            <p>Date de modification : {{ topic.modificationDate ? topic.modificationDate|date('d-m-Y') : ''}}</p>
-                        {% else %}
-                            <p>Date de création : {{ topic.creationDate ? topic.creationDate|date('d-m-Y') : '' }}<p>
-                        {% endif %}
-                        <p>Créer par {{ topic.user.pseudo ? topic.user.pseudo : topic.user.email }}<p>
-                        {% if app.user %}
-                            <a href="{{ path('app_topic_edit', {'id': topic.id}) }}" class="btn btn-warning">Modifier</a>
-                            <a href="{{ path('app_comment_new', {'id': topic.id}) }}" class="btn btn-dark">Commenter</a>
-                            {{ include('topic/_delete_form.html.twig') }}
-                        {% endif %}
-                    </div>
+                        <p>Date de modification : {{ topic.modificationDate ? topic.modificationDate|date('d-m-Y') : ''}}</p>
+                    {% else %}
+                        <p>Date de création : {{ topic.creationDate ? topic.creationDate|date('d-m-Y') : '' }}<p>
+                    {% endif %}
+                    <p>Créer par {{ topic.user.pseudo ? topic.user.pseudo : topic.user.email }}<p>
+                    {% if app.user and app.user == topic.user %}
+                        <a href="{{ path('app_topic_edit', {'id': topic.id}) }}" class="btn btn-warning">Modifier</a>
+                    {% endif %}
+                    {% if app.user %}
+                        <a href="{{ path('app_comment_new', {'topicId': topic.id}) }}" class="btn btn-dark"><i class="fa-solid fa-message" style="color: #1a5b2b;"></i>Commenter</a>
+                    {% endif %}
+                    {% if is_granted('ROLE_ADMIN') or app.user == topic.user %}
+                        {{ include('topic/_delete_form.html.twig') }}
+                    {% endif %}
                 </div>
             </div>
+        </div>
 
         <h2>Commentaires :</h2>
         {% for comment in topic.comments %}
-            <div class="card">
+            <div class="card mt-2 col-12">
                 <div class="card-header">
-                    <h3 class="card-title">{{ topic.user.pseudo }}</h3>
+                    <h3 class="card-title">{{ comment.user.pseudo }}</h3>
                 </div>
                 <div class="card-body">
                     <p>{{ comment.message }}<p>
-                    <a class="btn btn-warning" href="{{ path('app_comment_edit', {'id': comment.id}) }}">Modifier</a>
+                    {% if app.user and app.user == comment.user %}
+                        <a class="btn btn-warning" href="{{ path('app_comment_edit', {'id': comment.id}) }}">Modifier</a>
+                    {% endif %}
+                    {% if is_granted('ROLE_ADMIN') or app.user == comment.user %}
+                        {{ include('comment/_delete_form.html.twig') }}
+                    {% endif %}
                 </div>
                 <div class="card-footer text-body-secondary">
                     {% if comment.modificationDate %}

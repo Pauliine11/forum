@@ -3,103 +3,62 @@
 
 {% block body %}
 
-<div class="container my-5">
+    <div class="container my-5">
 
-{% if app.user %}
-    <h1 class="mt-5">Bienvenue {{ app.user.pseudo}}, Explorons ensemble ! </h1>
-{% else %}
-    <h1 class="mt-5">Bienvenue au Regisciens</h1>
-{% endif %}
+        {% if app.user %}
+            <h1 class="mt-5">Bienvenue {{ app.user.pseudo}}, Explorons ensemble ! </h1>
+        {% else %}
+            <h1 class="mt-5">Bienvenue au Regisciens</h1>
+        {% endif %}
 
-    <div class="container-fluid bgLight">
-        <div class="row m-2 d-flex justify-content-around">
-            <div class="row m-2 d-flex justify-content-around mb-3 col_12">
+        <div class="container-fluid row bgLight">
+        
+            <div class="row m-2 d-flex justify-content-around mb-3 col-5">
                 <div class="p-2 mt-5">
-                    <a href="{{ path('app_topic_index') }}" class="btn btnColor">
+                    <a href="{{ path('app_topic_index') }}" class="btn btnColor col-10">
                         <img class="iconDino" src="img/dino3.png"/>Général
                     </a>
                 </div>
                 <div class="p-2">
-                    <a href="#" class="btn btnColor">
+                    <a href="#" class="btn btnColor col-10">
                         <img class="iconDino" src="img/dino5.png"/>Dinosaures
                     </a>
                 </div>
                 <div class="p-2">
-                    <a href="#" class="btn btnColor ">
+                    <a href="#" class="btn btnColor col-10">
                         <img class="iconDino" src="img/dino2.png"/>Paléontologie
                     </a>
                 </div>
                 <div class="p-2">
-                    <a href="{{ path('app_topic_new') }}" class="btn btnColor m-3">
+                    <a href="{{ path('app_topic_new') }}" class="btn btnColor col-10">
                         <img class="iconDino" src="img/dino7.png"/>Nouveau sujet
                     </a>
                 </div>
             </div>
-
-            <h2 class="mt-5">Sujet récent :</h2>
-
-            <div class="col_3 rounded border border-secondary m-2">
-                <h3>Ici un sujet</h3>
-                <p>Ici nom de la personne qui a creer<p>
-                <p>ici date</p>
+            <div class="row d-flex justify-content-around col-7">
+                <h2 class="mt-5">Sujet récent :</h2>
+                {% for topic in topics %}
+                    <div class="card text-bg-dark mb-3 mt-3" style="max-width: 18rem;">
+                        <div class="card-header text-center fs-5">{{ topic.title }}</div>
+                        <div class="card-body d-flex justify-content-end">
+                            <a class="btn btnColor" href="{{ path('app_topic_show', {'id': topic.id}) }}">Voir +</a>
+                        </div>
+                    </div>
+                {% endfor %}
             </div>
-
-            <div class="col_3 rounded border border-secondary m-2">
-                <h3>Ici un autre sujet</h3>
-                <hr class="trait"/>
-                <p>Ici nom de la personne qui a creer</p>
-                <p>Ici date</p>
-            </div>
-
-            <div class="col_3 rounded border border-secondary m-2">
-                <h3>Ici un autre sujet</h3>
-                <hr class="trait"/>
-                <p>Ici nom de la personne qui a creer</p>
-                <p>Ici date</p>
-            </div>
-
-            <div class="col_3 rounded border border-secondary m-2">
-                <h3>Ici un autre sujet</h3>
-                <hr class="trait"/>
-                <p>Ici nom de la personne qui a creer</p>
-                <p>Ici date</p>
-            </div>
-            <div class="col_3 rounded border border-secondary m-2">
-                <h3>Ici un sujet</h3>
-                <p>Ici nom de la personne qui a creer<p>
-                <p>ici date</p>
-            </div>
-
-            <div class="col_3 rounded border border-secondary m-2">
-                <h3>Ici un autre sujet</h3>
-                <hr class="trait"/>
-                <p>Ici nom de la personne qui a creer</p>
-                <p>Ici date</p>
-            </div>
-
-            <div class="col_3 rounded border border-secondary m-2">
-                <h3>Ici un autre sujet</h3>
-                <hr class="trait"/>
-                <p>Ici nom de la personne qui a creer</p>
-                <p>Ici date</p>
-            </div>
-
-            <div class="col_3 rounded border border-secondary m-2">
-                <h3>Ici un autre sujet</h3>
-                <hr class="trait"/>
-                <p>Ici nom de la personne qui a creer</p>
-                <p>Ici date</p>
-            </div>
-            <div class="col_3 rounded border border-secondary m-2">
-                <h3>Ici un autre sujet</h3>
-                <hr class="trait"/>
-                <p>Ici nom de la personne qui a creer</p>
-                <p>Ici date</p>
+            <div class="row d-flex justify-content-center col-12">
+                <h2 class="my-5 text-center fs-2">Le plan :</h2>
+                <img class="mb-5 rounded-1" src="{{ asset('img/regisparc.png') }}" alt="plan de regis parc" />
             </div>
         </div>
     </div>
-</div>
 
 
-{% endblock %}        
+{% endblock %}      
+
+
+
+
+
+  
 
